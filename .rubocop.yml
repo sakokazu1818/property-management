@@ -1,0 +1,43 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'config/**/*'
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# 1行120文字まで
+Metrics/LineLength:
+  Max: 120
+
+# 1メソッド15行まで
+Metrics/MethodLength:
+  Max: 15
+
+# 先頭のドキュメントを必須ではなくする
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'spec/factories/**/*'
+    - 'spec/lib/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': ()
+
+Lint/EachWithObjectArgument:
+  Enabled: false
