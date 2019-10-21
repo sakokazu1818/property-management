@@ -1,0 +1,33 @@
+linters:
+  LineLength:
+    max: 160
+  IdNames:
+    style: snake_case
+  SpaceInsideHashAttributes:
+    style: no_space
+  RuboCop:
+    ignored_cops:
+      # defaults
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Layout/AlignParameters
+      - Layout/ElseAlignment
+      - Layout/EndOfLine
+      - Layout/IndentationWidth
+      - Layout/TrailingBlankLines
+      - Layout/TrailingWhitespace
+      - Metrics/BlockLength
+      - Metrics/BlockNesting
+      - Metrics/LineLength
+      - Naming/FileName
+      - Style/FrozenStringLiteralComment
+      - Style/IfUnlessModifier
+      - Style/Next
+      - Style/WhileUntilModifier
+      # added
+      - Style/StringLiteralsInInterpolation
+      - Style/StringLiterals
+  InstanceVariables:
+    exclude:
+      - "**/_form.*"

@@ -1,0 +1,16 @@
+= form_tag login_path, method: 'post' do
+  = hidden_field_tag 'request_url', flash[:request_url]
+  .row
+    .col-12
+      - if flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      - if flash[:notice]
+        .alert.alert-info= flash[:notice]
+  .form-group
+    = label_tag :login_name, (Administrator.human_attribute_name :name)
+    = text_field_tag :login_name, params[:login_name], class: 'form-control'
+  .form-group
+    = label_tag :password, (Administrator.human_attribute_name :password)
+    = password_field_tag :password, '', class: 'form-control'
+  .text-right
+    = submit_tag 'ログイン', class: 'btn btn-primary'
