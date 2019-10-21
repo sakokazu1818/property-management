@@ -10,7 +10,7 @@ class LoginController < ApplicationController
       session[:admin_id] = @admin.id
       flash[:notice] = 'ログインしました'
 
-      redirect_to params[:request_url].present? ? params[:request_url] : index_path
+      redirect_to params[:request_url].present? ? params[:request_url] : properties_path
     else
       flash[:alert] = 'ログインに失敗しました'
       redirect_to root_path

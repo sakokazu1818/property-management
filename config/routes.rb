@@ -9,4 +9,11 @@ Rails.application.routes.draw do
     post 'login'
     post 'logout'
   end
+
+  resources :properties do
+
+    collection do
+      post 'download'
+    end
+  end
 end
