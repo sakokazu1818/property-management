@@ -1,24 +1,14 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
-
   # GET /properties
-  # GET /properties.json
   def index
-    @properties = Dir::glob("#{Rails.root}/public/files/*.x*")
-  end
-
-  # GET /properties/1
-  # GET /properties/1.json
-  def show
+    # TODO
+    # @properties = Dir::glob("#{Rails.root}/public/files/*.x*")
+    @properties = Dir::glob("#{Rails.root}/public/files/*")
   end
 
   # GET /properties/new
   def new
     raise
-  end
-
-  # GET /properties/1/edit
-  def edit
   end
 
   # POST /properties
@@ -37,22 +27,8 @@ class PropertiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /properties/1
-  # PATCH/PUT /properties/1.json
-  def update
-    respond_to do |format|
-      if @property.update(property_params)
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
-      else
-        format.html { render :edit }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /properties/1
-  # DELETE /properties/1.json
   def destroy
     @property.destroy
     respond_to do |format|
@@ -62,19 +38,11 @@ class PropertiesController < ApplicationController
   end
 
   # download /properties/download/:file_path
-  def download(name)
-    download_file_name = "public/files/日報検索.xlsx"
-    send_file download_file_name
+  def download
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename='#{Rails.root}/public/files/日報検索.xlsx'"
+      }
+    end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def property_params
-      params.fetch(:property, {})
-    end
 end

@@ -28,3 +28,6 @@ Things you may want to cover:
 ```
 $ be haml-lint app/views/
 ```
+
+heroku run rake db:migrate
+heroku run rake db:seed
