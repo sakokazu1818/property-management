@@ -10,8 +10,7 @@
   %tbody
     - @properties.each do |property|
       %tr
-        %td= link_to property.split('/').last, download_properties_path
-        property
+        %td= link_to property.split('/').last, download_properties_path(property.split('/').last)
 
         -# %td= link_to 'Edit', edit_property_path(property)
         -# %td= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' }

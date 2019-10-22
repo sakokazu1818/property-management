@@ -63,7 +63,7 @@ class PropertiesController < ApplicationController
 
   # download /properties/download/:file_path
   def download(name)
-    download_file_name = "public/master/master.txt"
+    download_file_name = "public/files/日報検索.xlsx"
     send_file download_file_name
   end
 
